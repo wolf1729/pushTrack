@@ -18,8 +18,6 @@ const auth = getAuth(app);
 const initialState = {
     userId: null,
     userName: null,
-    loading: false,
-    error: null,
 };
 
 const authSlice = createSlice({
@@ -33,32 +31,16 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(signup.pending, (state) => {
-                state.loading = true;
-                state.error = null;
-            })
             .addCase(signup.fulfilled, (state, action) => {
                 state.loading = false;
                 state.userId = action.payload.userId;
                 state.userName = action.payload.userName;
-            })
-            .addCase(signup.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
-            })
-            .addCase(login.pending, (state) => {
-                state.loading = true;
-                state.error = null;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.loading = false;
                 state.userId = action.payload.userId;
                 state.userName = action.payload.userName;
             })
-            .addCase(login.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
-            });
     }
 });
 

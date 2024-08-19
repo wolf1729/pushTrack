@@ -79,7 +79,7 @@ function AuthenticationScreen() {
             <View style={{ flex: 1, width: '100vw', alignItems: 'center', justifyContent: 'center', margin: 30 }}>
                 <View>
                     <Image
-                        source={require('../logo/png/logo-no-background.png')}
+                        source={require('../assets/logo/png/logo-no-background.png')}
                         style={styles.imageStyle}
                     />
                 </View>

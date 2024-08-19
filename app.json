@@ -4,10 +4,10 @@
     "slug": "pushTrack",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "logo/png/pushtrack-favicon-black.png",
+    "icon": "assets/logo/png/pushtrack-favicon-black.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "logo/png/logo-color.png",
+      "image": "assets/logo/png/logo-color.png",
       "resizeMode": "contain",
       "backgroundColor": "#ECECEA"
     },
@@ -16,12 +16,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "logo/png/pushtrack-favicon-black.png",
+        "foregroundImage": "assets/logo/png/pushtrack-favicon-black.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "logo/png/pushtrack-favicon-black.png"
+      "favicon": "assets/logo/png/pushtrack-favicon-black.png"
     }
   }
 }
