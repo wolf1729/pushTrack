@@ -1,11 +1,13 @@
-import { Avatar, Tab, Button, TabView } from "@rneui/base";
-import { View, Text, StyleSheet } from "react-native";
+import { Avatar, Button, Icon } from "@rneui/base";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { avatar } from "../assets/Avatars/avatarImagesDetails";
 import { useEffect, useState } from "react";
 import { quoteCall } from "../State/Services/apiCalls";
+import { useNavigation } from "@react-navigation/native";
 
 function MainScreen() {
+    const navigation = useNavigation()
     const [index, setIndex] = useState(0); 
     const [quote, setQuote] = useState(null);
     const [pushUps, setPushUps] = useState(6)
@@ -67,7 +69,23 @@ function MainScreen() {
                         titleStyle={{ fontSize: 30 }}
                     />
                 </View>
-            </View>           
+            </View>
+
+            {/* BOTTOM NAVIGATION BAR */}    
+            <View style={styles.bottomNavigation}>
+                <TouchableOpacity style={{ width: '50%' }}>
+                    <View style={styles.navigationElement}>
+                        <Icon name="clock" type="evilicon" size={30} color='white' />
+                        <Text style={{ color: 'white', fontSize: 12, }}>Count</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ width: '50%'}} onPress={() => navigation.navigate('ProgressScreen')}>
+                    <View style={styles.navigationElement}>
+                        <Icon name="trophy" type="evilicon" size={30} color='white' />
+                        <Text style={{ color: 'white', fontSize: 12, }}>Progress</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>       
         </SafeAreaView>
         </>
     );
@@ -103,5 +121,22 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         marginTop: 40
+    },
+    bottomNavigation: {
+        position: 'absolute',
+        bottom: 0,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        width: '100%',
+        backgroundColor: '#009b7d',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        padding: 10,
+    },
+    navigationElement: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-around'
     },
 });
